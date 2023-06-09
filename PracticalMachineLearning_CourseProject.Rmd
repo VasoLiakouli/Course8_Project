@@ -1,0 +1,58 @@
+---
+title: "Practical Machine Learning Course Project"
+author: "Vaso Liakouli"
+date: "2023-06-08"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Synopsis
+This analysis reviews data related to how well individuals have performed 
+specific activities in the gym.
+We will apply different methods in order to be able to predict the "classe" 
+attribute of the data set that indicates the manner the exercise was executed.
+
+
+## Data Processing
+For the data processing, we will download the data, in case they are not already 
+available under our working directory.  
+ 
+
+```{r cache = TRUE, echo = FALSE}
+## Include required libraries
+library(dplyr)
+
+## Set working directory
+
+
+## Check if the file already exists under the working directory, if not, download it.
+training_file <- "pml-training.csv"
+testing_file  <- "pml-testing.csv"
+
+if (!file.exists(training_file)) {
+  
+  fileurl_train  <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
+  destfile_train <- "pml-training.csv"
+  download.file(fileurl_train,destfile_train)
+}
+
+
+if (!file.exists(testing_file)) {
+  
+  fileurl_test  <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
+  destfile_test <- "pml-testing.csv"
+  download.file(fileurl_test,destfile_test)
+}
+
+## Read the CSV file
+data_train <- read.csv("pml-training.csv")
+data_test  <- read.csv("pml-testing.csv")
+```
+
+
+
+## Appendix
+Put graphs here 
+ 
